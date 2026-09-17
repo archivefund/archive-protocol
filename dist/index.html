@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive — ARC</title>
+<meta name="description" content="Archive is a project building on the ARC chain. Contract address and social channels publish here the moment they are confirmed.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<div class="ca-bar" id="ca-bar">
+  <div class="ca-bar__inner">
+    <span class="ca-bar__label">Contract</span>
+    <span class="ca-bar__value" id="ca-value" data-status="absent">Not yet issued</span>
+    <button class="ca-copy" id="ca-copy" type="button" disabled aria-disabled="true" aria-label="Copy contract address">
+      <span id="ca-copy-label">Copy</span>
+    </button>
+    <span class="ca-bar__dated" id="ca-dated"></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="#top">
+      <img class="brand__mark" src="assets/brand/logo-96.png" alt="Archive mark" width="32" height="32">
+      <span class="brand__wordmark">ARCHIVE</span>
+      <span class="brand__chain" id="chain-badge">—</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#overview">Overview</a>
+      <a href="#batches">Batches</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="social-row" aria-label="Social">
+      <!-- LINK RULE: href only present once a URL is stated+verified in registry.json -->
+      <a class="social-icon" id="social-x" data-inert="true" aria-disabled="true" aria-label="X: not yet confirmed">
+        <svg viewBox="0 0 1200 1227" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+      </a>
+      <a class="social-icon" id="social-github" data-inert="true" aria-disabled="true" aria-label="GitHub: not yet confirmed">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="overview">
+    <div class="container">
+      <span class="hero__eyebrow" id="hero-chain">Chain — loading</span>
+      <h1 class="hero__title">A public record for what Archive ships, batch by batch.</h1>
+      <p class="hero__lede">Archive keeps one register for every fact that matters before launch — chain, contract, channels. Nothing here goes live until it's confirmed, and this page says so plainly while it waits.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#batches">View batches</a>
+        <a class="btn btn--ghost" href="#faq">Read the register</a>
+      </div>
+
+      <div class="stat-row" id="stat-row"></div>
+    </div>
+  </section>
+
+  <section class="section" id="batches">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Batches <span class="count-badge" id="batch-count">0</span></h2>
+        <div class="tabs" id="batch-tabs" role="tablist" aria-label="Sort batches">
+          <button class="tab" role="tab" aria-selected="true" data-sort="newest">Newest</button>
+          <button class="tab" role="tab" aria-selected="false" data-sort="oldest">Oldest</button>
+        </div>
+      </div>
+      <div class="card-grid" id="batch-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Register</h2>
+      </div>
+      <div id="register-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__row">
+      <span>© 2026 Archive</span>
+      <div class="social-row" id="footer-social" aria-label="Social"></div>
+    </div>
+    <p class="site-footer__legal">Archive publishes facts as they are confirmed, one register entry at a time. A dash means a fact is absent, not zero; italics mean a claim is unconfirmed, not false. Nothing on this page is investment advice.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

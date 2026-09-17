@@ -1,0 +1,82 @@
+/*
+  PALETTE RULE: every literal color value in this project lives in this file,
+  and only in this file. No other .css/.html/.js file may contain a hex literal
+  (enforced by tests/gates.mjs). Every value below is sampled from a real asset
+  pixel via k-means clustering (k=5-6, 25-30 iterations, seeded), then snapped
+  to the nearest real pixel coordinate in the source image and read back from
+  that exact coordinate. No hex value here was authored by hand.
+*/
+
+:root {
+  /* -- background / navy gradient --
+     source: brand/LOGO ARCHIVE JPG.jpg.jpeg (2000x2000, RGB)
+     method: k-means k=5, seed=7, on pixels with luma<150 (background only,
+     logo silhouette excluded via luma mask) */
+  --color-bg-1000: #001132; /* topmost pixel row mean, y=2 */
+  --color-bg-950:  #00193e; /* k-means rank0, frac 0.4281, snapped px (993,316) */
+  --color-bg-800:  #042a57; /* k-means rank1, frac 0.2688, snapped px (631,1068) */
+  --color-bg-600:  #154778; /* k-means rank3, frac 0.1024, snapped px (1608,1506) */
+  --color-bg-400:  #306599; /* k-means rank4, frac 0.0974, snapped px (1839,1692) */
+  --color-bg-300:  #4b82b8; /* k-means rank2, frac 0.1034, snapped px (1785,1870) */
+  --color-bg-200:  #5890c3; /* bottommost pixel row mean, y=1998 */
+
+  /* -- chrome / mark --
+     source: brand/LOGO ARCHIVE PNG...png (2000x2000, RGBA, colortype 6)
+     method: k-means k=6, seed=42, on pixels with alpha>200 (opaque mark only) */
+  --color-chrome-100: #f9fafc; /* rank4, frac 0.1284, snapped px (1015,626) */
+  --color-chrome-200: #ebf0f7; /* rank5, frac 0.1192, snapped px (1030,653) */
+  --color-chrome-300: #dee5ef; /* rank2, frac 0.1631, snapped px (1042,682) */
+  --color-chrome-400: #d1dbe8; /* rank1, frac 0.1871, snapped px (1056,704) */
+  --color-chrome-500: #c4d0e1; /* rank0, frac 0.2619, snapped px (1105,773) */
+  --color-chrome-600: #b4c2d7; /* rank3, frac 0.1403, snapped px (1182,915) */
+
+  /* -- ember / accent --
+     source: reference/SAMPUL ARCHIVE JPG.jpg.jpeg (1500x500, RGB)
+     method: k-means k=6, seed=3, on the bottom 25% strip (y>=375) */
+  --color-ember-600: #be4729; /* rank1, frac 0.1817, snapped px (993,457) */
+  --color-ember-500: #ce964b; /* rank4, frac 0.1114, snapped px (659,417) */
+  --color-ember-800: #6c2a2c; /* rank3, frac 0.1561, snapped px (1016,479) */
+  --color-teal-mist: #7c9ba0; /* rank5, frac 0.0911, snapped px (642,375) */
+
+  /* semantic aliases (no new literals, only references to the above) */
+  --surface-page: var(--color-bg-1000);
+  --surface-raised: var(--color-bg-950);
+  --surface-card: var(--color-bg-800);
+  --surface-card-border: var(--color-bg-600);
+  --text-primary: var(--color-chrome-100);
+  --text-secondary: var(--color-chrome-500);
+  --text-muted: var(--color-bg-300);
+  --accent-primary: var(--color-ember-600);
+  --accent-primary-soft: var(--color-ember-500);
+  --accent-warn: var(--color-ember-800);
+  --focus-ring: var(--color-teal-mist);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --tap-min: 44px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-medium: 240ms;
+  --duration-slow: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-medium: 0ms;
+    --duration-slow: 0ms;
+  }
+}

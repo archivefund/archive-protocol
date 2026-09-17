@@ -1,0 +1,35 @@
+{
+  "$schema": "register-pattern: every field is {status: stated|absent|unconfirmed, ...}. status=stated is the only status a UI may render as live/clickable/active.",
+  "chain": {
+    "status": "stated",
+    "value": "ARC",
+    "source": "client statement, 2026-09-17, batch-level",
+    "asOf": "2026-09-17"
+  },
+  "contractAddress": {
+    "status": "absent",
+    "value": null,
+    "source": null,
+    "asOf": "2026-09-17"
+  },
+  "social": {
+    "x": {
+      "status": "unconfirmed",
+      "url": null,
+      "source": null,
+      "asOf": "2026-09-17"
+    },
+    "github": {
+      "status": "unconfirmed",
+      "url": null,
+      "source": null,
+      "asOf": "2026-09-17"
+    }
+  },
+  "batches": [],
+  "stats": {
+    "marketCapUsd": { "status": "absent", "value": null, "source": null, "asOf": "2026-09-17" },
+    "volumeUsd": { "status": "absent", "value": null, "source": null, "asOf": "2026-09-17" },
+    "holders": { "status": "absent", "value": null, "source": null, "asOf": "2026-09-17" }
+  }
+}

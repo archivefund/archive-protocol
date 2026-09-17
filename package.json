@@ -1,0 +1,11 @@
+{
+  "name": "archive-fund",
+  "private": true,
+  "version": "0.1.0",
+  "description": "archive.fund static site",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "gates": "node tests/gates.mjs",
+    "serve": "node tools/serve.mjs"
+  }
+}
